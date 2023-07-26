@@ -1,73 +1,66 @@
 import React, { ReactElement, useState } from 'react'
-import logo from './logo.svg'
-import viteLogo from './vite.svg'
-import tailwindLogo from './tailwind.svg'
+
+import Button from '@mui/material/Button'
 import { Link } from 'react-router-dom'
+import Stack from '@mui/material/Stack'
+import IconButton from '@mui/material/IconButton'
+import DeleteIcon from '@mui/icons-material/Delete'
+import { useTranslation } from 'react-i18next'
 
 function App(): ReactElement {
   const [count, setCount] = useState(0)
+  const { t, i18n } = useTranslation()
+
+  const handleClick = () => {
+    if (i18n.language === 'en') {
+      i18n.changeLanguage('ja')
+    } else i18n.changeLanguage('en')
+  }
 
   return (
-    <div className="p-20 border shadow-xl border-gray-50 rounded-xl">
-      <header>
-        <div className="flex justify-center">
-          <img src={viteLogo} className="w-32 h-32" alt="vite logo" />
-          <img src={logo} className="w-32 h-32" alt="React logo" />
-          <img
-            src={tailwindLogo}
-            className="w-32 h-32"
-            alt="Tailwind CSS logo"
-          />
-        </div>
+    <div className="p-20 text-red-500 border shadow-xl border-gray-50 rounded-xl">
+      <main>
         <p className="pb-3 text-2xl">Hello Vite + React + Tailwind CSS!</p>
         <p>
-          <button
+          <Button
             className="pt-1 pb-1 pl-2 pr-2 text-sm text-purple-100 bg-purple-400 rounded"
-            onClick={() => setCount((count) => count + 1)}
+            onClick={() => setCount((prev) => prev + 1)}
           >
             count is: {count}
-          </button>
+          </Button>
         </p>
-        <p className="pt-3 pb-3">
-          Edit{' '}
-          <code className="border border-1 pl-1 pr-1 pb-0.5 pt-0.5 rounded border-purple-400 font-mono text-sm bg-purple-100 text-purple-900">
-            src/App.tsx
-          </code>{' '}
-          and save to test HMR updates.
-        </p>
-        <p>
-          <Link to="/about" className="text-purple-400 underline">
-            about
-          </Link>
-          {' | '}
-          <a
-            className="text-purple-400 underline"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="text-purple-400 underline"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-          {' | '}
-          <a
-            className="text-purple-400 underline"
-            href="https://tailwindcss.com/docs"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Tailwind CSS Docs
-          </a>
-        </p>
-      </header>
+
+        <div>{t('common.test')}</div>
+
+        <Stack spacing={2} direction="row">
+          <Button onClick={handleClick} variant="text">
+            Text
+          </Button>
+          <Button onClick={handleClick} variant="contained">
+            Change language
+          </Button>
+          <Button variant="outlined">Outlined</Button>
+        </Stack>
+
+        <Link to="/about" className="text-purple-400 underline">
+          About
+        </Link>
+
+        <Stack direction="row" alignItems="center" spacing={1}>
+          <IconButton aria-label="delete" size="small">
+            <DeleteIcon fontSize="inherit" />
+          </IconButton>
+          <IconButton aria-label="delete" size="small">
+            <DeleteIcon fontSize="small" />
+          </IconButton>
+          <IconButton aria-label="delete" size="large">
+            <DeleteIcon />
+          </IconButton>
+          <IconButton aria-label="delete" size="large">
+            <DeleteIcon fontSize="inherit" />
+          </IconButton>
+        </Stack>
+      </main>
     </div>
   )
 }
