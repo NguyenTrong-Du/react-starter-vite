@@ -1,3 +1,11 @@
 {
-  "test": "test"
+  "language": "Language",
+  "english": "English",
+  "japanese": "Japanese",
+  "loginSuccess": "Login successfully",
+  "datePickerPlaceholder": "Select date",
+  "timePickerPlaceholder": "Select time",
+  "validationError": {
+    "U10004": " Email or password incorrect"
+  }
 }

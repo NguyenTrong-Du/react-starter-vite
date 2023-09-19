@@ -1,3 +1,11 @@
 {
-  "test": "試験"
+  "language": "言語",
+  "english": "英語",
+  "japanese": "日本語",
+  "loginSuccess": "ログインに成功しました",
+  "datePickerPlaceholder": "日付を選択",
+  "timePickerPlaceholder": "時間を選択",
+  "validationError": {
+    "U10004": "メールアドレスまたはパスワードに誤りがあります"
+  }
 }

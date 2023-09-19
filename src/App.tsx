@@ -1,68 +1,52 @@
-import React, { ReactElement, useState } from 'react'
-
-import Button from '@mui/material/Button'
-import { Link } from 'react-router-dom'
-import Stack from '@mui/material/Stack'
-import IconButton from '@mui/material/IconButton'
-import DeleteIcon from '@mui/icons-material/Delete'
 import { useTranslation } from 'react-i18next'
+import { CssBaseline } from '@mui/material'
+import { ThemeProvider } from '@mui/material/styles'
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
+import useAuth from 'hooks/useAuth'
+import { SnackbarKey, SnackbarProvider } from 'notistack'
+import { useRecoilValue } from 'recoil'
+import themeState from 'stores/theme'
 
-function App(): ReactElement {
-  const [count, setCount] = useState(0)
-  const { t, i18n } = useTranslation()
+import SnackbarCloseButton from 'components/atoms/SnackbarCloseButton'
+import Spinner from 'components/atoms/Spinner'
 
-  const handleClick = () => {
-    if (i18n.language === 'en') {
-      i18n.changeLanguage('ja')
-    } else i18n.changeLanguage('en')
-  }
+import 'dayjs/locale/ja'
+
+import { darkTheme, lightTheme } from './libs/theme'
+import Routes from './routes'
+
+export default function App() {
+  const { i18n } = useTranslation()
+  const { isInitialLoading } = useAuth({ enabled: true })
+  const theme = useRecoilValue(themeState)
+
+  const snackbarAction = (snackbarKey: SnackbarKey) => (
+    <SnackbarCloseButton snackbarKey={snackbarKey} />
+  )
+
+  if (isInitialLoading) return <Spinner />
 
   return (
-    <div className="p-20 text-red-500 border shadow-xl border-gray-50 rounded-xl">
-      <main>
-        <p className="pb-3 text-2xl">Hello Vite + React + Tailwind CSS!</p>
-        <p>
-          <Button
-            className="pt-1 pb-1 pl-2 pr-2 text-sm text-purple-100 bg-purple-400 rounded"
-            onClick={() => setCount((prev) => prev + 1)}
-          >
-            count is: {count}
-          </Button>
-        </p>
-
-        <div>{t('common.test')}</div>
-
-        <Stack spacing={2} direction="row">
-          <Button onClick={handleClick} variant="text">
-            Text
-          </Button>
-          <Button onClick={handleClick} variant="contained">
-            Change language
-          </Button>
-          <Button variant="outlined">Outlined</Button>
-        </Stack>
-
-        <Link to="/about" className="text-purple-400 underline">
-          About
-        </Link>
-
-        <Stack direction="row" alignItems="center" spacing={1}>
-          <IconButton aria-label="delete" size="small">
-            <DeleteIcon fontSize="inherit" />
-          </IconButton>
-          <IconButton aria-label="delete" size="small">
-            <DeleteIcon fontSize="small" />
-          </IconButton>
-          <IconButton aria-label="delete" size="large">
-            <DeleteIcon />
-          </IconButton>
-          <IconButton aria-label="delete" size="large">
-            <DeleteIcon fontSize="inherit" />
-          </IconButton>
-        </Stack>
-      </main>
-    </div>
+    <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
+      <CssBaseline />
+      <SnackbarProvider
+        anchorOrigin={{
+          horizontal: 'right',
+          vertical: 'top'
+        }}
+        autoHideDuration={3000}
+        disableWindowBlurListener
+        preventDuplicate
+        action={snackbarAction}
+      >
+        <LocalizationProvider
+          dateAdapter={AdapterDayjs}
+          adapterLocale={i18n.language}
+        >
+          <Routes />
+        </LocalizationProvider>
+      </SnackbarProvider>
+    </ThemeProvider>
   )
 }
-
-export default App
