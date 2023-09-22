@@ -7,5 +7,17 @@
   "timePickerPlaceholder": "Select time",
   "validationError": {
     "U10004": " Email or password incorrect"
+  },
+  "sidebar": {
+    "home": "Home",
+    "library": "Library",
+    "history": "History",
+    "music": "Music"
+  },
+  "navigationBar": {
+    "home": "Home",
+    "library": "Library",
+    "explore": "Explore",
+    "music": "Music"
   }
 }

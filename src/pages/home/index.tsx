@@ -22,7 +22,7 @@ export default function HomePage() {
   useQuery(['api/v1/events?limit=2&offset=0'])
 
   return (
-    <div className="p-20 border shadow-xl border-gray-50 rounded-xl mx-12">
+    <div className="tablet:p-20 border shadow-xl border-gray-50 rounded-xl tablet:mx-12">
       <main>
         <Typography variant="h4" className="text-red-500 text-center">
           Hello Vite + React
@@ -51,6 +51,21 @@ export default function HomePage() {
           <div className="h-10 w-10 bg-[url('/vite.svg')] bg-center bg-no-repeat" />
           <ViteIcon />
         </div>
+
+        <Box sx={{ width: '100%', maxWidth: 500 }}>
+          <Typography variant="h2" gutterBottom>
+            h2. Heading
+          </Typography>
+          <Typography variant="h3" gutterBottom>
+            h3. Heading
+          </Typography>
+          <Typography variant="h4" gutterBottom>
+            h4. Heading
+          </Typography>
+          <Typography variant="h5" gutterBottom>
+            h5. Heading
+          </Typography>
+        </Box>
 
         <Box sx={{ width: '100%', maxWidth: 500 }}>
           <Typography variant="h2" gutterBottom>

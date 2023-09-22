@@ -1,8 +1,12 @@
 import { atom } from 'recoil'
+import { SidebarStatus } from 'types'
 
-const sidebarState = atom<boolean>({
+const sidebarState = atom<SidebarStatus>({
   key: 'sidebarState',
-  default: true
+  default: {
+    isPermanentDrawerCollapsed: false,
+    isTemporaryDrawerCollapse: true
+  }
 })
 
 export default sidebarState

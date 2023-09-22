@@ -1,6 +1,17 @@
 import { PropsWithChildren } from 'react'
 import Const from 'constants/common'
 
+declare module '@mui/material/styles' {
+  interface BreakpointOverrides {
+    xs: true
+    sm: true
+    tablet: true
+    md: true
+    lg: true
+    xl: true
+  }
+}
+
 export type RouteObject = {
   path: string
   layout?: ({ children }: PropsWithChildren) => JSX.Element
@@ -49,3 +60,8 @@ export type MutationFnVariables = {
 export type ToastErrorCode = keyof typeof Const.TOAST_ERROR_CODES
 
 export type ValidationErrorCode = keyof typeof Const.VALIDATION_ERROR_CODES
+
+export type SidebarStatus = {
+  isPermanentDrawerCollapsed: boolean
+  isTemporaryDrawerCollapse: boolean
+}
