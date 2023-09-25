@@ -49,7 +49,7 @@ Example: `feat: first commit`
 
 ### Branch Rules
 
-Must create branch follow below rules:
+Branch name should follow below rules:
 
 - feat/
 - feedback/
