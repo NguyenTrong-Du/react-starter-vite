@@ -1,13 +1,13 @@
-import HomeIcon from '@mui/icons-material/Home'
-import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined'
-import VideoLibraryOutlinedIcon from '@mui/icons-material/VideoLibraryOutlined'
-import VideoLibraryIcon from '@mui/icons-material/VideoLibrary'
+import HeadsetMicIcon from '@mui/icons-material/HeadsetMic'
+import HeadsetMicOutlinedIcon from '@mui/icons-material/HeadsetMicOutlined'
 import HistoryIcon from '@mui/icons-material/History'
 import HistoryOutlinedIcon from '@mui/icons-material/HistoryOutlined'
-import HeadsetMicOutlinedIcon from '@mui/icons-material/HeadsetMicOutlined'
-import HeadsetMicIcon from '@mui/icons-material/HeadsetMic'
-import RocketLaunchOutlinedIcon from '@mui/icons-material/RocketLaunchOutlined'
+import HomeIcon from '@mui/icons-material/Home'
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined'
 import RocketLaunchIcon from '@mui/icons-material/RocketLaunch'
+import RocketLaunchOutlinedIcon from '@mui/icons-material/RocketLaunchOutlined'
+import VideoLibraryIcon from '@mui/icons-material/VideoLibrary'
+import VideoLibraryOutlinedIcon from '@mui/icons-material/VideoLibraryOutlined'
 
 class Const {
   static get DRAWER_WIDTH(): number {
@@ -79,17 +79,6 @@ class Const {
         activeIcon: VideoLibraryIcon
       }
     ]
-  }
-
-  static get TOAST_ERROR_CODES() {
-    return {}
-  }
-
-  static get VALIDATION_ERROR_CODES() {
-    return {
-      // login
-      U10004: ['email', 'password'] // Email or password incorrect
-    }
   }
 }
 

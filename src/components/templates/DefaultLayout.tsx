@@ -1,21 +1,24 @@
-import { AppBar, Box, Theme, Toolbar, useMediaQuery } from '@mui/material'
 import { PropsWithChildren } from 'react'
+import { AppBar, Box, Theme, Toolbar, useMediaQuery } from '@mui/material'
+import cn from 'libs/cn'
 
 import HideOnScroll from 'components/atoms/HideOnScroll'
 import BottomNavigationBar from 'components/organisms/BottomNavigationBar'
 import Footer from 'components/organisms/Footer'
 import Header from 'components/organisms/Header'
 import Sidebar from 'components/organisms/Sidebar'
-import cn from 'libs/cn'
 
 export default function DefaultLayout({ children }: PropsWithChildren) {
-  const isMobile = useMediaQuery<Theme>((theme) =>
+  const tabletMatched = useMediaQuery<Theme>((theme) =>
     theme.breakpoints.down('tablet')
+  )
+  const smMatched = useMediaQuery<Theme>((theme) =>
+    theme.breakpoints.down('sm')
   )
 
   return (
     <Box>
-      {isMobile ? (
+      {tabletMatched ? (
         <HideOnScroll>
           <AppBar>
             <Header />
@@ -34,14 +37,14 @@ export default function DefaultLayout({ children }: PropsWithChildren) {
       )}
 
       <Box className="flex">
-        {!isMobile && <Sidebar />}
+        {!tabletMatched && <Sidebar />}
 
         <Box component="main" className="grow">
           <Toolbar />
 
           <Box
             className={cn('bg-red-100', {
-              'pb-10': !isMobile
+              'pb-10': !tabletMatched
             })}
           >
             {children}
@@ -53,11 +56,11 @@ export default function DefaultLayout({ children }: PropsWithChildren) {
             </Toolbar>
           </AppBar>
 
-          {isMobile && <Toolbar />}
+          {tabletMatched && <Toolbar />}
         </Box>
       </Box>
 
-      {isMobile && <BottomNavigationBar />}
+      {tabletMatched && <BottomNavigationBar />}
     </Box>
   )
 }

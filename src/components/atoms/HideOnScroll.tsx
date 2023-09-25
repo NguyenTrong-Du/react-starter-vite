@@ -29,3 +29,7 @@ export default function HideOnScroll(props: Props) {
     </Slide>
   )
 }
+
+HideOnScroll.defaultProps = {
+  window: undefined
+}

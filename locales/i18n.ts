@@ -7,6 +7,8 @@ import ja from './ja'
 import { convertLanguageJsonToObject } from './translations'
 
 export const translationsJson = { en, ja }
+export const toastErrors = Object.keys(en.translation.common.toastError)
+export const validatorErrorTranslations = en.translation.common.validationError
 
 // Create the 'translations' object to provide full intellisense support for the static json files.
 convertLanguageJsonToObject(en)

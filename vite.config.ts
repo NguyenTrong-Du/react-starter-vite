@@ -17,7 +17,8 @@ export default defineConfig({
       styles: '/src/styles',
       types: '/src/types',
       utils: '/src/utils',
-      libs: '/src/libs'
+      libs: '/src/libs',
+      locales: '/locales'
     }
   }
 })

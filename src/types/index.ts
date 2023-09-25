@@ -1,5 +1,4 @@
 import { PropsWithChildren } from 'react'
-import Const from 'constants/common'
 
 declare module '@mui/material/styles' {
   interface BreakpointOverrides {
@@ -57,11 +56,14 @@ export type MutationFnVariables = {
   errorMessage?: string
 }
 
-export type ToastErrorCode = keyof typeof Const.TOAST_ERROR_CODES
-
-export type ValidationErrorCode = keyof typeof Const.VALIDATION_ERROR_CODES
-
 export type SidebarStatus = {
   isPermanentDrawerCollapsed: boolean
   isTemporaryDrawerCollapse: boolean
+}
+
+export type ValidationError = {
+  [key: string]: {
+    fieldNames: string[]
+    translationKey: string
+  }
 }

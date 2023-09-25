@@ -1,12 +1,12 @@
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import LanguageIcon from '@mui/icons-material/Language'
+import { ListItemIcon, ListItemText, Menu } from '@mui/material'
 import Button from '@mui/material/Button'
 import MenuItem from '@mui/material/MenuItem'
 
 import EnglandFlagIcon from 'components/icons/EnglandFlagIcon'
 import JapanFlagIcon from 'components/icons/JapanFlagIcon'
-import { ListItemIcon, ListItemText, Menu } from '@mui/material'
 
 export default function LanguageSwitcher() {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)

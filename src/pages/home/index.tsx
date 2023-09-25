@@ -22,7 +22,7 @@ export default function HomePage() {
   useQuery(['api/v1/events?limit=2&offset=0'])
 
   return (
-    <div className="tablet:p-20 border shadow-xl border-gray-50 rounded-xl tablet:mx-12">
+    <div className="border shadow-xl border-gray-50 rounded-xl">
       <main>
         <Typography variant="h4" className="text-red-500 text-center">
           Hello Vite + React

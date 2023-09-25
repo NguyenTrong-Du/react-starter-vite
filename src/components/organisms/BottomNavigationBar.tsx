@@ -1,8 +1,8 @@
-import { AppBar, BottomNavigation, BottomNavigationAction } from '@mui/material'
-import Const from 'constants/common'
 import { SyntheticEvent, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { NavLink, useLocation } from 'react-router-dom'
+import { AppBar, BottomNavigation, BottomNavigationAction } from '@mui/material'
+import Const from 'constants/common'
 
 export default function BottomNavigationBar() {
   const { t } = useTranslation()
@@ -38,7 +38,9 @@ export default function BottomNavigationBar() {
                 maxWidth: 'unset',
                 '& .MuiBottomNavigationAction-label': {
                   transition: 'none',
-                  fontSize: '0.75rem'
+                  '&.Mui-selected': {
+                    fontSize: '0.75rem'
+                  }
                 }
               }}
             />

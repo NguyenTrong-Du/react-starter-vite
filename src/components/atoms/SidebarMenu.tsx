@@ -1,3 +1,5 @@
+import { useTranslation } from 'react-i18next'
+import { NavLink, useLocation } from 'react-router-dom'
 import {
   Box,
   Divider,
@@ -10,8 +12,6 @@ import {
 import Const from 'constants/common'
 import useSidebar from 'hooks/useSidebar'
 import cn from 'libs/cn'
-import { useTranslation } from 'react-i18next'
-import { NavLink, useLocation } from 'react-router-dom'
 
 type Props = {
   isCollapsed: boolean

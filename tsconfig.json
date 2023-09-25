@@ -31,7 +31,8 @@
       "types/*": ["src/types/*"],
       "utils": ["src/utils/index"],
       "utils/*": ["src/utils/*"],
-      "libs/*": ["src/libs/*"]
+      "libs/*": ["src/libs/*"],
+      "locales": ["locales/*"]
     }
   },
   "include": ["./src", "locales"]

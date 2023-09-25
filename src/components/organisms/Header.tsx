@@ -1,3 +1,5 @@
+import { ChangeEvent } from 'react'
+import { NavLink } from 'react-router-dom'
 import MenuIcon from '@mui/icons-material/Menu'
 import {
   Box,
@@ -8,14 +10,13 @@ import {
   Typography
 } from '@mui/material'
 import useAuth from 'hooks/useAuth'
-import { ChangeEvent } from 'react'
-import { NavLink } from 'react-router-dom'
+import useSidebar from 'hooks/useSidebar'
 import { useRecoilState } from 'recoil'
 import themeState from 'stores/theme'
 
 import ThemeSwitch from 'components/atoms/ThemeSwitch'
 import LanguageSwitcher from 'components/molecules/LanguageSwitcher'
-import useSidebar from 'hooks/useSidebar'
+import MobileMenu from 'components/molecules/MobileMenu'
 
 export default function Header() {
   const [theme, setTheme] = useRecoilState(themeState)
@@ -49,7 +50,7 @@ export default function Header() {
   }
 
   return (
-    <Toolbar>
+    <Toolbar className="!px-3 tablet:!px-6">
       {tabletMatched && (
         <IconButton
           onClick={handleToggleDrawer}
@@ -65,7 +66,8 @@ export default function Header() {
       <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
         MUI
       </Typography>
-      <Box>
+
+      <Box className="flex items-center">
         <LanguageSwitcher />
 
         <FormControlLabel
@@ -79,30 +81,33 @@ export default function Header() {
           label="Mode"
         />
 
-        {tabletMatched &&
-          [
-            { label: 'Home', href: '/' },
-            { label: 'About', href: '/about' }
-          ].map(({ label, href }) => (
-            <Button
-              key={label}
-              component={NavLink}
-              to={href}
-              sx={{ color: '#fff' }}
-            >
-              {label}
-            </Button>
-          ))}
+        {tabletMatched ? (
+          <>
+            {[
+              { label: 'Home', href: '/' },
+              { label: 'About', href: '/about' }
+            ].map(({ label, href }) => (
+              <Button
+                key={label}
+                component={NavLink}
+                to={href}
+                sx={{ color: '#fff' }}
+              >
+                {label}
+              </Button>
+            ))}
 
-        {tabletMatched && (
-          <Button
-            component={profile ? 'div' : NavLink}
-            to={profile ? undefined : '/login'}
-            sx={{ color: '#fff' }}
-            onClick={handleLogout}
-          >
-            {profile ? 'Logout' : 'Login'}
-          </Button>
+            <Button
+              component={profile ? 'div' : NavLink}
+              to={profile ? undefined : '/login'}
+              sx={{ color: '#fff' }}
+              onClick={handleLogout}
+            >
+              {profile ? 'Logout' : 'Login'}
+            </Button>
+          </>
+        ) : (
+          <MobileMenu />
         )}
       </Box>
     </Toolbar>

@@ -1,41 +1,137 @@
-# vite React TypeScript tailwindcss starter
+# Vite React TypeScript Starter
 
-Template for vite, React + tailwindcss + TypeScript projects with some tools preconfigured.
+Template for Vite, React + Tailwindcss + TypeScript projects with some tools preconfigured.
 
-## About
+# Prerequisites
 
-Template for vite, React + tailwindcss + TypeScript projects with some tools preconfigured.
-
-![Screenshot](assets/screenshot.png)
+1. Install [Node.js](https://nodejs.org/en/) (v18)
+2. Install [yarn](https://yarnpkg.com/getting-started/install)
 
 ### Libraries
 
 - [React 18](https://reactjs.org/)
 - [React Router 6](https://reactrouter.com)
-- [tailwindcss 3](https://tailwindcss.com/)
-  - [tailwindcss forms plugin](https://tailwindcss-forms.vercel.app/)
+- [Tailwindcss 3](https://tailwindcss.com/)
 - [TypeScript 4.9.5](https://www.typescriptlang.org/)
-- [vite 4](https://vitejs.dev/)
-- [vitetest](https://vitest.dev/)
+- [Vite 4](https://vitejs.dev/)
+- [Material UI 5.14](https://mui.com/material-ui/getting-started/)
+- [React Query 4.35](https://tanstack.com/query/v4/docs/react/overview/)
+- [React Hook Form 7.45](https://react-hook-form.com/get-started/)
+- [Recoil 0.7](https://recoiljs.org/docs/introduction/getting-started/)
 
 ### Tools
 
-- [commitlint 17](https://commitlint.js.org)
+- [Commitlint 17](https://commitlint.js.org)
 - [Conventional Commits 1](https://www.conventionalcommits.org)
-- [editorconfig](https://editorconfig.org/)
-- [eslint 8](https://eslint.org/)
-- [husky 8](https://typicode.github.io/husky/#/)
+- [Editorconfig](https://editorconfig.org/)
+- [Eslint 8](https://eslint.org/)
+- [Husky 8](https://typicode.github.io/husky/#/)
 - [Prettier 2](https://prettier.io/)
 - [VS Code settings](https://code.visualstudio.com/)
 
+### Commit Rules
+
+Must create branch follow below rules:
+
+- build
+- chore
+- ci
+- docs
+- feat
+- fix
+- perf
+- refactor
+- revert
+- style
+- test
+
+Example: `feat: first commit`
+
+### Branch Rules
+
+Must create branch follow below rules:
+
+- feat/
+- feedback/
+- hotfix/
+- revert/
+- reset/
+- force/
+- refactor/
+- fix/
+
+Example: `git checkout -b feat/feature-a`
+
+Note: _Underscore to be not allow!!!_
+
 ## Usage
 
-Create a new project from this template by clicking the "Use this template" button:
-
-![](assets/template-usage.png)
+Clone the project
 
 ```bash
-yarn
-yarn dev
-yarn test
+  git clone https://link-to-project
 ```
+
+Go to the project directory
+
+```bash
+  cd my-project
+```
+
+Install dependencies
+
+```bash
+  yarn install
+```
+
+Start the server
+
+```bash
+  yarn dev
+```
+
+## Directory structure
+
+### Overview
+
+```
+├── locales
+├── public
+├── src
+│   ├── components
+│   │   ├── atoms
+│   │   ├── icons
+│   │   ├── molecules
+│   │   ├── organisms
+│   │   └── templates
+│   ├── constants
+│   ├── hooks
+│   ├── libs
+│   ├── pages
+│   ├── routes
+│   ├── services
+│   ├── stores
+│   ├── styles
+│   ├── types
+│   └── utils
+├── package.json
+└── README.md
+```
+
+### Detail
+
+- **locales** - Multi-language translations
+- **public** - Public files (images, favicons, etc.)
+- **src** - Contains all source codes
+  - **components** - Components
+  - **constants** - Constant definition
+  - **hooks** - Custom hooks
+  - **libs** - Extends configure
+  - **pages** - Pages
+  - **routes** - Routes
+  - **services** - API integration services
+  - **stores** - Global store
+  - **styles** - CSS styles
+  - **types** - Typescript type and enumeration definitions
+  - **utils** - Helper functions (sorting, filtering, etc.)
+- **package.json** - Project dependencies

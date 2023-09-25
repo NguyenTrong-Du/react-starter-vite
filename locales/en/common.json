@@ -5,8 +5,11 @@
   "loginSuccess": "Login successfully",
   "datePickerPlaceholder": "Select date",
   "timePickerPlaceholder": "Select time",
+  "toastError": {
+    "U10001": "Example error message"
+  },
   "validationError": {
-    "U10004": " Email or password incorrect"
+    "U10004-email,password": "Email or password incorrect"
   },
   "sidebar": {
     "home": "Home",
