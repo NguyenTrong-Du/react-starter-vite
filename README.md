@@ -7,6 +7,8 @@ Template for Vite, React + Tailwindcss + TypeScript projects with some tools pre
 1. Install [Node.js](https://nodejs.org/en/) (v18)
 2. Install [yarn](https://yarnpkg.com/getting-started/install)
 
+# Getting started
+
 ### Libraries
 
 - [React 18](https://reactjs.org/)
@@ -29,7 +31,7 @@ Template for Vite, React + Tailwindcss + TypeScript projects with some tools pre
 - [Prettier 2](https://prettier.io/)
 - [VS Code settings](https://code.visualstudio.com/)
 
-### Commit Rules
+### Commit rules
 
 Must create branch follow below rules:
 
@@ -47,7 +49,7 @@ Must create branch follow below rules:
 
 Example: `feat: first commit`
 
-### Branch Rules
+### Branch rules
 
 Branch name should follow below rules:
 
@@ -64,12 +66,12 @@ Example: `git checkout -b feat/feature-a`
 
 Note: _Underscore to be not allow!!!_
 
-## Usage
+# Usage
 
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/NguyenTrong-Du/react-starter-vite
 ```
 
 Go to the project directory
@@ -90,7 +92,7 @@ Start the server
   yarn dev
 ```
 
-## Directory structure
+# Directory structure
 
 ### Overview
 
